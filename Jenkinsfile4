@@ -1,1 +1,9 @@
 
+pipeline {
+  agent any
+  stages {
+    stage("Build"){
+      sh "python3 manage.py"
+    }
+  }
+}
