@@ -1,9 +1,14 @@
-
 pipeline {
   agent any
   stages {
-    stage("Build"){
-      sh "python3 manage.py"
+   stage('Build') {
+     agent {
+    docker { image 'django:latest' }
     }
-  }
+    steps {
+       sh 'python3 manage.py'
+     }
+    }
+
+}
 }
